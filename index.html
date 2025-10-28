@@ -328,7 +328,13 @@ async function renderRekap(start = "", end = "") {
 function applyRekapFilter(){
   const s = document.getElementById("rekapStart").value;
   const e = document.getElementById("rekapEnd").value;
-  renderRekap(s || "", e || "");
+
+  if (!s || !e) {
+    alert("Pilih tanggal mulai dan sampai dulu.");
+    return;
+  }
+
+  renderRekap(s, e);
 }
 function resetRekapFilter(){ document.getElementById("rekapStart").value=""; document.getElementById("rekapEnd").value=""; renderRekap(); }
 
@@ -337,5 +343,6 @@ function resetRekapFilter(){ document.getElementById("rekapStart").value=""; doc
 </script>
 </body>
 </html>
+
 
 
